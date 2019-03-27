@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T11:09:40.427Z</updated>
+  <updated>2019-03-27T10:40:18.883Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -15,28 +15,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title></title>
-    <link href="http://yoursite.com/2019/03/27/Test-Blog2/"/>
-    <id>http://yoursite.com/2019/03/27/Test-Blog2/</id>
-    <published>2019-03-27T10:35:04.637Z</published>
-    <updated>2019-03-27T11:09:40.427Z</updated>
-    
-    <content type="html"><![CDATA[<p>一个机器人位于一个&nbsp;<em>m x n&nbsp;</em>网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。</p><p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&ldquo;Finish&rdquo;）。</p><p>问总共有多少条不同的路径？</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190321154712828-402330827.png" alt></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png" alt></p><p><small>例如，上图是一个7 x 3 的网格。有多少可能的路径？</small></p><p>说明：<em>m</em>&nbsp;和&nbsp;<em>n&nbsp;</em>的值均不超过 100。</p><p>示例&nbsp;1:</p><pre>输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右</pre><p>示例&nbsp;2:</p><pre>输入: m = 7, n = 3输出: 28</pre><pre><br>可以观察规律，矩阵中数字表示起点到这个地方有多少条路。</pre><table border="0"><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>1</td><td>3</td><td>6</td><td>10</td><td>15</td></tr></tbody></table><pre><br>发现坐标(i,j)路的条数，可以通过关系式：<strong>way[i][j] = way[i - 1][j] + way[i][j - 1];</strong>计算</pre><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;#include &lt;memory&gt;#include &lt;numeric&gt;using namespace std;static int x = []() {std::ios::sync_with_stdio(false); cin.tie(0); return 0; }();class Solution {public:    int uniquePaths(int m, int n) {        vector&lt;vector&lt;int&gt; &gt; way(m, vector&lt;int&gt;(n, 1));        for (int i = 1; i &lt; m; ++i) {            for (int j = 1; j &lt; n; ++j) {                way[i][j] = way[i - 1][j] + way[i][j - 1];            }        }        return way[m - 1][n - 1];    }};int main(){    Solution A;    int m = 7, n = 3;    cout &lt;&lt; A.uniquePaths(m, n);    system("PAUSE");    return 0;}</pre></div><p>　　</p><p>&nbsp;</p><p>注意：memset()是按字节赋值，只能够赋值-1或0。</p><p>当我们赋值1时，1转换为二进制<strong>00000001</strong>，占1字节，int型为4字节，因此实际上赋值的是：<strong>0000 0001,0000 0001,0000 0001,0000 0001</strong></p><p><span>也就是<strong>16843009</strong></span></p><p>&nbsp;</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">int ptr** = new int*[m];for(int i = 0; i &lt; m; ++i){    ptr[m] = new int[n];}....for(int i = 0; i &lt; m;++i)    delete[] ptr[m];}delete []ptr;</pre></div><p>　　</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一个机器人位于一个&amp;nbsp;&lt;em&gt;m x n&amp;nbsp;&lt;/em&gt;网格的左上角 （起始点在下图中标记为&amp;ldquo;Start&amp;rdquo; ）。&lt;/p&gt;
-&lt;p&gt;机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&amp;ldquo;Finish&amp;r
-      
-    
-    </summary>
-    
-    
-  </entry>
   
   <entry>
     <title>Test Blog</title>
@@ -63,6 +41,32 @@
     
     
       <category term="ode45" scheme="http://yoursite.com/tags/ode45/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Test Blog2</title>
+    <link href="http://yoursite.com/2019/03/27/Test-Blog2/"/>
+    <id>http://yoursite.com/2019/03/27/Test-Blog2/</id>
+    <published>2019-03-27T10:27:32.000Z</published>
+    <updated>2019-03-27T11:12:57.609Z</updated>
+    
+    <content type="html"><![CDATA[<p>一个机器人位于一个&nbsp;<em>m x n&nbsp;</em>网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。</p><p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&ldquo;Finish&rdquo;）。</p><p>问总共有多少条不同的路径？</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190321154712828-402330827.png" alt></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png" alt></p><p><small>例如，上图是一个7 x 3 的网格。有多少可能的路径？</small></p><p>说明：<em>m</em>&nbsp;和&nbsp;<em>n&nbsp;</em>的值均不超过 100。</p><p>示例&nbsp;1:</p><pre>输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右</pre><p>示例&nbsp;2:</p><pre>输入: m = 7, n = 3输出: 28</pre><pre><br>可以观察规律，矩阵中数字表示起点到这个地方有多少条路。</pre><table border="0"><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>1</td><td>3</td><td>6</td><td>10</td><td>15</td></tr></tbody></table><pre><br>发现坐标(i,j)路的条数，可以通过关系式：<strong>way[i][j] = way[i - 1][j] + way[i][j - 1];</strong>计算</pre><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">#include &lt;iostream&gt;#include &lt;vector&gt;#include &lt;algorithm&gt;#include &lt;memory&gt;#include &lt;numeric&gt;using namespace std;static int x = []() {std::ios::sync_with_stdio(false); cin.tie(0); return 0; }();class Solution {public:    int uniquePaths(int m, int n) {        vector&lt;vector&lt;int&gt; &gt; way(m, vector&lt;int&gt;(n, 1));        for (int i = 1; i &lt; m; ++i) {            for (int j = 1; j &lt; n; ++j) {                way[i][j] = way[i - 1][j] + way[i][j - 1];            }        }        return way[m - 1][n - 1];    }};int main(){    Solution A;    int m = 7, n = 3;    cout &lt;&lt; A.uniquePaths(m, n);    system("PAUSE");    return 0;}</pre></div><p>　　</p><p>&nbsp;</p><p>注意：memset()是按字节赋值，只能够赋值-1或0。</p><p>当我们赋值1时，1转换为二进制<strong>00000001</strong>，占1字节，int型为4字节，因此实际上赋值的是：<strong>0000 0001,0000 0001,0000 0001,0000 0001</strong></p><p><span>也就是<strong>16843009</strong></span></p><p>&nbsp;</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">int ptr** = new int*[m];for(int i = 0; i &lt; m; ++i){    ptr[m] = new int[n];}....for(int i = 0; i &lt; m;++i)    delete[] ptr[m];}delete []ptr;</pre></div><p>　　</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;一个机器人位于一个&amp;nbsp;&lt;em&gt;m x n&amp;nbsp;&lt;/em&gt;网格的左上角 （起始点在下图中标记为&amp;ldquo;Start&amp;rdquo; ）。&lt;/p&gt;
+&lt;p&gt;机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&amp;ldquo;Finish&amp;r
+      
+    
+    </summary>
+    
+      <category term="二叉树" scheme="http://yoursite.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    
+      <category term="二叉树" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
