@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T11:19:34.558Z</updated>
+  <updated>2019-03-27T11:32:00.023Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,7 +21,7 @@
     <link href="http://yoursite.com/2019/03/27/Test-Blog/"/>
     <id>http://yoursite.com/2019/03/27/Test-Blog/</id>
     <published>2019-03-27T10:27:32.000Z</published>
-    <updated>2019-03-27T11:19:34.558Z</updated>
+    <updated>2019-03-27T11:32:00.023Z</updated>
     
     <content type="html"><![CDATA[<p>首先介绍一下ode45的格式：</p><blockquote><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0)</code></div><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">[t,y,te,ye,ie] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">sol = ode45(<span class="argument_placeholder">___)</span></code></div></blockquote><p>这里介绍一阶微分方程：</p><blockquote><p>[自变量，因变量] = ode45(方程，范围，初值);</p></blockquote><p>&nbsp;</p><p>举个栗子：</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111054595-552540890.png" alt width="774" height="160"></p><p>&nbsp;</p><p>首先创建一个<strong>func2.m</strong>函数存放方程表达式</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">function Biubiu = func2(h, t)g = 9.8;Biubiu = (10000*pi/sqrt(2*g))*(h.^(3/2) - 2*(h.^(1/2)));end</pre></div><p>　　</p><p>接着在MATLAB命令窗口输入：</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">tspan = [1 0];%函数范围t_1 = 0;%初值[h,t] = ode45(@func2, hspan, t_1);plot(h,t);%绘图</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111749506-248585311.png" alt width="512" height="386"></p><p>&nbsp;</p><p>可以丰富一下图像，增加横坐标名，纵坐标名和标题</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">xlabel('h值')ylabel('y值')title('一阶微分方程')</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326112238965-873344779.png" alt width="518" height="390"></p><p>&nbsp;</p><p><strong>相关资料访问</strong>：<a href="https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta" target="_blank">https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta</a></p>]]></content>
     
