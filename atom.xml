@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T07:12:51.317Z</updated>
+  <updated>2019-03-27T10:17:02.414Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -21,21 +21,21 @@
     <link href="http://yoursite.com/2019/03/26/Hello-Hk-Mayfly/"/>
     <id>http://yoursite.com/2019/03/26/Hello-Hk-Mayfly/</id>
     <published>2019-03-26T07:54:42.000Z</published>
-    <updated>2019-03-27T07:12:51.317Z</updated>
+    <updated>2019-03-27T10:17:02.414Z</updated>
     
-    <content type="html"><![CDATA[<p>Biubiubiu!!!文本测试！！！</p>]]></content>
+    <content type="html"><![CDATA[<p>Biubiubiu!!!博客完善期，等待上线!!!</p>]]></content>
     
     <summary type="html">
     
       
       
-        &lt;p&gt;Biubiubiu!!!文本测试！！！&lt;/p&gt;
+        &lt;p&gt;Biubiubiu!!!博客完善期，等待上线!!!&lt;/p&gt;
 
       
     
     </summary>
     
-      <category term="搭建Github博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BAGithub%E5%8D%9A%E5%AE%A2/"/>
+      <category term="搭建GitHub博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
     
     
       <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
