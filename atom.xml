@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://yoursite.com/"/>
-  <updated>2019-03-27T10:31:51.644Z</updated>
+  <updated>2019-03-27T10:39:52.460Z</updated>
   <id>http://yoursite.com/</id>
   
   <author>
@@ -17,11 +17,37 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>Test Blog2</title>
+    <link href="http://yoursite.com/2019/03/27/Test-Blog2/"/>
+    <id>http://yoursite.com/2019/03/27/Test-Blog2/</id>
+    <published>2019-03-27T10:35:04.000Z</published>
+    <updated>2019-03-27T10:39:52.460Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p>一个机器人位于一个&nbsp;<em>m x n&nbsp;</em>网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。</p><p></p><p></p><p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&ldquo;Finish&rdquo;）。</p><p></p><p></p><p>问总共有多少条不同的路径？</p><p></p><p></p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190321154712828-402330827.png" alt></p><p></p><p></p><p><img src="https://assets.leetcode-cn.com/aliyun-lc-upload/uploads/2018/10/22/robot_maze.png" alt></p><p></p><p></p><p><small>例如，上图是一个7 x 3 的网格。有多少可能的路径？</small></p><p></p><p></p><p>说明：<em>m</em>&nbsp;和&nbsp;<em>n&nbsp;</em>的值均不超过 100。</p><p></p><p></p><p>示例&nbsp;1:</p><p></p><pre>输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右</pre><p>示例&nbsp;2:</p><pre>输入: m = 7, n = 3输出: 28</pre><pre><br>可以观察规律，矩阵中数字表示起点到这个地方有多少条路。</pre><table style="height: 97px; width: 353px;" border="0"><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>1</td><td>3</td><td>6</td><td>10</td><td>15</td></tr></tbody></table><pre><br>发现坐标(i,j)路的条数，可以通过关系式：<span style="color: #ff0000;"><strong>way[i][j] = way[i - 1][j] + way[i][j - 1];</strong></span>计算<span style="color: #ff0000;"><strong><br></strong></span></pre><div class="cnblogs_code"><pre>#include &lt;iostream&gt;<span style="color: #000000;">#include </span>&lt;vector&gt;<span style="color: #000000;">#include </span>&lt;algorithm&gt;<span style="color: #000000;">#include </span>&lt;memory&gt;<span style="color: #000000;">#include </span>&lt;numeric&gt;<span style="color: #0000ff;">using</span> <span style="color: #0000ff;">namespace</span><span style="color: #000000;"> std;</span><span style="color: #0000ff;">static</span> <span style="color: #0000ff;">int</span> x = []() {std::ios::sync_with_stdio(<span style="color: #0000ff;">false</span>); cin.tie(<span style="color: #800080;">0</span>); <span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">; }();</span><span style="color: #0000ff;">class</span><span style="color: #000000;"> Solution {</span><span style="color: #0000ff;">public</span><span style="color: #000000;">:    </span><span style="color: #0000ff;">int</span> uniquePaths(<span style="color: #0000ff;">int</span> m, <span style="color: #0000ff;">int</span><span style="color: #000000;"> n) {        vector</span>&lt;vector&lt;<span style="color: #0000ff;">int</span>&gt; &gt; way(m, vector&lt;<span style="color: #0000ff;">int</span>&gt;(n, <span style="color: #800080;">1</span><span style="color: #000000;">));        </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">1</span>; i &lt; m; ++<span style="color: #000000;">i) {            </span><span style="color: #0000ff;">for</span> (<span style="color: #0000ff;">int</span> j = <span style="color: #800080;">1</span>; j &lt; n; ++<span style="color: #000000;">j) {                way[i][j] </span>= way[i - <span style="color: #800080;">1</span>][j] + way[i][j - <span style="color: #800080;">1</span><span style="color: #000000;">];            }        }        </span><span style="color: #0000ff;">return</span> way[m - <span style="color: #800080;">1</span>][n - <span style="color: #800080;">1</span><span style="color: #000000;">];    }};</span><span style="color: #0000ff;">int</span><span style="color: #000000;"> main(){    Solution A;    </span><span style="color: #0000ff;">int</span> m = <span style="color: #800080;">7</span>, n = <span style="color: #800080;">3</span><span style="color: #000000;">;    cout </span>&lt;&lt;<span style="color: #000000;"> A.uniquePaths(m, n);    system(</span><span style="color: #800000;">"</span><span style="color: #800000;">PAUSE</span><span style="color: #800000;">"</span><span style="color: #000000;">);    </span><span style="color: #0000ff;">return</span> <span style="color: #800080;">0</span><span style="color: #000000;">;}</span></pre></div><p>&nbsp;</p><p>注意：memset()是按字节赋值，只能够赋值-1或0。</p><p>当我们赋值1时，1转换为二进制00000001，占1字节，int型为4字节，因此实际上赋值的是：0000 0001,0000 0001,0000 0001,0000 0001</p><p><span style="color: #000000;">也就是16843009</span></p><p>&nbsp;</p><p>&nbsp;</p><div class="cnblogs_code"><pre><span style="color: #0000ff;">int</span> ptr** = <span style="color: #0000ff;">new</span> <span style="color: #0000ff;">int</span>*<span style="color: #000000;">[m];</span><span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; m; ++<span style="color: #000000;">i){    ptr[m] </span>= <span style="color: #0000ff;">new</span> <span style="color: #0000ff;">int</span><span style="color: #000000;">[n];}....</span><span style="color: #0000ff;">for</span>(<span style="color: #0000ff;">int</span> i = <span style="color: #800080;">0</span>; i &lt; m;++<span style="color: #000000;">i)    </span><span style="color: #0000ff;">delete</span><span style="color: #000000;">[] ptr[m];}</span><span style="color: #0000ff;">delete</span> []ptr;</pre></div><p>&nbsp;</p><p>&nbsp;</p><p>&nbsp;</p><pre><em id="__mceDel">&nbsp;</em></pre>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;/p&gt;&lt;p&gt;一个机器人位于一个&amp;nbsp;&lt;em&gt;m x n&amp;nbsp;&lt;/em&gt;网格的左上角 （起始点在下图中标记为&amp;ldquo;Start&amp;rdquo; ）。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在
+      
+    
+    </summary>
+    
+      <category term="二叉树" scheme="http://yoursite.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+    
+      <category term="二叉树" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+  </entry>
+  
+  <entry>
     <title>Test Blog</title>
     <link href="http://yoursite.com/2019/03/27/Test-Blog/"/>
     <id>http://yoursite.com/2019/03/27/Test-Blog/</id>
     <published>2019-03-27T10:27:32.000Z</published>
-    <updated>2019-03-27T10:31:51.644Z</updated>
+    <updated>2019-03-27T10:40:18.883Z</updated>
     
     <content type="html"><![CDATA[<p>首先介绍一下ode45的格式：</p><blockquote><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0)</code></div><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">[t,y,te,ye,ie] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">sol = ode45(<span class="argument_placeholder">___)</span></code></div></blockquote><p>这里介绍一阶微分方程：</p><blockquote><p>[自变量，因变量] = ode45(方程，范围，初值);</p></blockquote><p>&nbsp;</p><p>举个栗子：</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111054595-552540890.png" alt width="774" height="160"></p><p>&nbsp;</p><p>首先创建一个<strong>func2.m</strong>函数存放方程表达式</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">function Biubiu = func2(h, t)g = 9.8;Biubiu = (10000*pi/sqrt(2*g))*(h.^(3/2) - 2*(h.^(1/2)));end</pre></div><p>　　</p><p>接着在MATLAB命令窗口输入：</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">tspan = [1 0];%函数范围t_1 = 0;%初值[h,t] = ode45(@func2, hspan, t_1);plot(h,t);%绘图</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111749506-248585311.png" alt width="512" height="386"></p><p>&nbsp;</p><p>可以丰富一下图像，增加横坐标名，纵坐标名和标题</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">xlabel('h值')ylabel('y值')title('一阶微分方程')</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326112238965-873344779.png" alt width="518" height="390"></p><p>&nbsp;</p><p><strong>相关资料访问</strong>：<a href="https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta" target="_blank">https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta</a></p>]]></content>
     
@@ -37,10 +63,10 @@
     
     </summary>
     
-      <category term="Hexo" scheme="http://yoursite.com/categories/Hexo/"/>
+      <category term="MATLAB" scheme="http://yoursite.com/categories/MATLAB/"/>
     
     
-      <category term="Test" scheme="http://yoursite.com/tags/Test/"/>
+      <category term="ode45" scheme="http://yoursite.com/tags/ode45/"/>
     
   </entry>
   
