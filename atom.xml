@@ -5,9 +5,9 @@
   <subtitle>不知道导致不确定，不确定导致决策瘫痪。</subtitle>
   <link href="/atom.xml" rel="self"/>
   
-  <link href="http://yoursite.com/"/>
+  <link href="http://hkmayfly.com/"/>
   <updated>2019-03-29T07:13:30.719Z</updated>
-  <id>http://yoursite.com/</id>
+  <id>http://hkmayfly.com/</id>
   
   <author>
     <name>Hk_Mayfly</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Test Blog</title>
-    <link href="http://yoursite.com/2019/03/27/Test-Blog/"/>
-    <id>http://yoursite.com/2019/03/27/Test-Blog/</id>
+    <link href="http://hkmayfly.com/2019/03/27/Test-Blog/"/>
+    <id>http://hkmayfly.com/2019/03/27/Test-Blog/</id>
     <published>2019-03-27T10:27:32.000Z</published>
     <updated>2019-03-29T07:13:30.719Z</updated>
     
@@ -37,17 +37,17 @@
     
     </summary>
     
-      <category term="MATLAB,ode45" scheme="http://yoursite.com/categories/MATLAB-ode45/"/>
+      <category term="MATLAB,ode45" scheme="http://hkmayfly.com/categories/MATLAB-ode45/"/>
     
     
-      <category term="ode45" scheme="http://yoursite.com/tags/ode45/"/>
+      <category term="ode45" scheme="http://hkmayfly.com/tags/ode45/"/>
     
   </entry>
   
   <entry>
     <title>Test Blog2</title>
-    <link href="http://yoursite.com/2019/03/27/Test-Blog2/"/>
-    <id>http://yoursite.com/2019/03/27/Test-Blog2/</id>
+    <link href="http://hkmayfly.com/2019/03/27/Test-Blog2/"/>
+    <id>http://hkmayfly.com/2019/03/27/Test-Blog2/</id>
     <published>2019-03-27T10:27:32.000Z</published>
     <updated>2019-03-28T09:33:00.485Z</updated>
     
@@ -63,17 +63,17 @@
     
     </summary>
     
-      <category term="二叉树" scheme="http://yoursite.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+      <category term="二叉树" scheme="http://hkmayfly.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
     
-      <category term="二叉树" scheme="http://yoursite.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+      <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
   </entry>
   
   <entry>
     <title>Hello,Hk_Mayfly!</title>
-    <link href="http://yoursite.com/2019/03/26/Hello-Hk-Mayfly/"/>
-    <id>http://yoursite.com/2019/03/26/Hello-Hk-Mayfly/</id>
+    <link href="http://hkmayfly.com/2019/03/26/Hello-Hk-Mayfly/"/>
+    <id>http://hkmayfly.com/2019/03/26/Hello-Hk-Mayfly/</id>
     <published>2019-03-26T07:54:42.000Z</published>
     <updated>2019-03-27T11:34:28.103Z</updated>
     
@@ -89,12 +89,12 @@
     
     </summary>
     
-      <category term="搭建GitHub博客" scheme="http://yoursite.com/categories/%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
+      <category term="搭建GitHub博客" scheme="http://hkmayfly.com/categories/%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
     
     
-      <category term="blog" scheme="http://yoursite.com/tags/blog/"/>
+      <category term="blog" scheme="http://hkmayfly.com/tags/blog/"/>
     
-      <category term="博客搭建" scheme="http://yoursite.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+      <category term="博客搭建" scheme="http://hkmayfly.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   
