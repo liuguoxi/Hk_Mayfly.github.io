@@ -1,4 +1,4 @@
 http://hkmayfly.com/2019/03/30/GitHub-hexo搭建个人博客/
-http://hkmayfly.com/2019/03/27/Test-Blog/
 http://hkmayfly.com/2019/03/27/Test-Blog2/
+http://hkmayfly.com/2019/03/27/Test-Blog/
 http://hkmayfly.com/2019/03/26/Hello-Hk-Mayfly/
