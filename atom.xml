@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hkmayfly.com/"/>
-  <updated>2019-04-01T14:18:42.861Z</updated>
+  <updated>2019-04-02T03:40:06.952Z</updated>
   <id>http://hkmayfly.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 257.二叉树所有路径（C++）</title>
+    <link href="http://hkmayfly.com/2019/04/02/LeetCode%20257.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%EF%BC%88C++%EF%BC%89/"/>
+    <id>http://hkmayfly.com/2019/04/02/LeetCode 257.二叉树所有路径（C++）/</id>
+    <published>2019-04-02T03:39:32.000Z</published>
+    <updated>2019-04-02T03:40:06.952Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p><p></p><p></p><p><b>说明:</b> 叶子节点是指没有子节点的节点。</p><p></p><p></p><p><b>示例:</b></p><p></p><p></p><p><b>输入:</b></p><p></p><p></p><p>&nbsp;</p><p></p><p><pre>   1 /   \2     3 \  5</pre></p><p></p><p><b>输出:</b> ["1-&gt;2-&gt;5", "1-&gt;3"]</p><p></p><p></p><p><b>解释:</b> 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3</p><p></p><p></p><p>&nbsp;</p><p></p><div class="cnblogs_code"><pre>class<span> Solution {public<span>:    vector&lt;string&gt; binaryTreePaths(TreeNode*<span> root) {        if(root == NULL)//二叉树为空            return<span> vec;        DFS(root, to_string(root-&gt;<span>val));        return<span> vec;    }    void DFS(TreeNode* root, string<span> str) {        if (root-&gt;right == NULL &amp;&amp; root-&gt;left == NULL) {//搜索完一个叶子节点，将数据存入容器<span>            vec.push_back(str);            return<span>;        }        if(root-&gt;left != NULL)//防止越界取值                DFS(root-&gt;left, str + "-&gt;" + to_string(root-&gt;left-&gt;val));//先将左子叶遍历，使用str存储递归中经过的值        if(root-&gt;right !=<span> NULL)            DFS(root-&gt;right, str + "-&gt;" + to_string(root-&gt;right-&gt;<span>val));    }private<span>:    vector&lt;string&gt;<span> vec;};</span></span></span></span></span></span></span></span></span></span></span></span></span></pre></div><p>&nbsp;</p><p>　　</p><p>&nbsp;</p><p><strong>转载</strong>：这个会更好理解</p><div class="cnblogs_code"><pre>/*这个应该挺容易理解*/class<span> Solution {private<span>: vector&lt;string&gt; ans;// 最终的解答public<span>: vector&lt;string&gt; binaryTreePaths(TreeNode*<span> root) {    binaryTreePaths(root, "", true);// 递归求解    return<span> ans; }private<span>: void binaryTreePaths(TreeNode* root, string s, bool<span> isRoot) {    if (!root) return<span>;    s += (isRoot ? "" : "-&gt;") + to_string(root-&gt;val);//根节点需要特殊处理    if (!root-&gt;left &amp;&amp; !root-&gt;right) {// 如果找到一个叶子节点<span>        ans.push_back(s);        return<span>;    }    binaryTreePaths(root-&gt;left, s, false<span>);    binaryTreePaths(root-&gt;right, s, false<span>); }};</span></span></span></span></span></span></span></span></span></span></span></span></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;/p&gt;&lt;p&gt;给定一个二叉树，返回所有从根节点到叶子节点的路径。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;说明:&lt;/b&gt; 叶子节点是指没有子节点的节点。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;示例:&lt;/b&gt;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&lt;b&gt;
+      
+    
+    </summary>
+    
+    
+      <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="算法--DFS" scheme="http://hkmayfly.com/tags/%E7%AE%97%E6%B3%95-DFS/"/>
+    
+      <category term="算法" scheme="http://hkmayfly.com/tags/%E7%AE%97%E6%B3%95/"/>
+    
+  </entry>
   
   <entry>
     <title>GitHub+hexo搭建个人博客</title>
@@ -38,88 +68,6 @@
     
     
       <category term="博客建设" scheme="http://hkmayfly.com/tags/%E5%8D%9A%E5%AE%A2%E5%BB%BA%E8%AE%BE/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Test Blog</title>
-    <link href="http://hkmayfly.com/2019/03/27/Test-Blog/"/>
-    <id>http://hkmayfly.com/2019/03/27/Test-Blog/</id>
-    <published>2019-03-27T10:27:32.000Z</published>
-    <updated>2019-03-30T09:13:40.542Z</updated>
-    
-    <content type="html"><![CDATA[<p>首先介绍一下ode45的格式：</p><blockquote><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0)</code></div><div class="code_responsive"><code class="synopsis">[t,y] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">[t,y,te,ye,ie] = ode45(odefun,tspan,y0,options)</code></div><div class="code_responsive"><code class="synopsis">sol = ode45(<span class="argument_placeholder">___)</span></code></div></blockquote><p>这里介绍一阶微分方程：</p><blockquote><p>[自变量，因变量] = ode45(方程，范围，初值);</p></blockquote><p>&nbsp;</p><p>举个栗子：</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111054595-552540890.png" alt width="774" height="160"></p><p>&nbsp;</p><p>首先创建一个<strong>func2.m</strong>函数存放方程表达式</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">function Biubiu = func2(h, t)g = 9.8;Biubiu = (10000*pi/sqrt(2*g))*(h.^(3/2) - 2*(h.^(1/2)));end</pre></div><p>　　</p><p>接着在MATLAB命令窗口输入：</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">tspan = [1 0];%函数范围t_1 = 0;%初值[h,t] = ode45(@func2, hspan, t_1);plot(h,t);%绘图</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326111749506-248585311.png" alt width="512" height="386"></p><p>&nbsp;</p><p>可以丰富一下图像，增加横坐标名，纵坐标名和标题</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">xlabel('h值')ylabel('y值')title('一阶微分方程')</pre></div><p>　　</p><p><img src="https://img2018.cnblogs.com/blog/1228809/201903/1228809-20190326112238965-873344779.png" alt width="518" height="390"></p><p>&nbsp;</p><p><strong>相关资料访问</strong>：<a href="https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta" target="_blank">https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta</a></p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;首先介绍一下ode45的格式：&lt;/p&gt;
-&lt;blockquote&gt;
-&lt;div class=&quot;code_responsive&quot;&gt;&lt;code class=&quot;synopsis&quot;&gt;[t,y] = ode45(odefun,tspan,y0)&lt;/code&gt;&lt;/div&gt;
-&lt;div cla
-      
-    
-    </summary>
-    
-      <category term="MATLAB,ode45" scheme="http://hkmayfly.com/categories/MATLAB-ode45/"/>
-    
-    
-      <category term="ode45" scheme="http://hkmayfly.com/tags/ode45/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Test Blog2</title>
-    <link href="http://hkmayfly.com/2019/03/27/Test-Blog2/"/>
-    <id>http://hkmayfly.com/2019/03/27/Test-Blog2/</id>
-    <published>2019-03-27T10:27:32.000Z</published>
-    <updated>2019-03-28T09:33:00.485Z</updated>
-    
-    <content type="html"><![CDATA[<p>一个机器人位于一个&nbsp;<em>m x n&nbsp;</em>网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。</p><p>机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&ldquo;Finish&rdquo;）。</p><p>问总共有多少条不同的路径？</p><p><img src="/images/Test Blog2_1.png" alt></p><p><small>例如，上图是一个7 x 3 的网格。有多少可能的路径？</small></p><p>说明：<em>m</em>&nbsp;和&nbsp;<em>n&nbsp;</em>的值均不超过 100。</p><p>示例&nbsp;1:</p><pre>输入: m = 3, n = 2输出: 3解释:从左上角开始，总共有 3 条路径可以到达右下角。1. 向右 -&gt; 向右 -&gt; 向下2. 向右 -&gt; 向下 -&gt; 向右3. 向下 -&gt; 向右 -&gt; 向右</pre><p>示例&nbsp;2:</p><pre>输入: m = 7, n = 3输出: 28</pre><pre><br>可以观察规律，矩阵中数字表示起点到这个地方有多少条路。</pre><table border="0"><tbody><tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr><tr><td>1</td><td>2</td><td>3</td><td>4</td><td>5</td></tr><tr><td>1</td><td>3</td><td>6</td><td>10</td><td>15</td></tr></tbody></table><pre><br>发现坐标(i,j)路的条数，可以通过关系式：<strong>way[i][j] = way[i - 1][j] + way[i][j - 1];</strong>计算</pre><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">#include &lt;vector&gt;#include &lt;algorithm&gt;#include &lt;memory&gt;#include &lt;numeric&gt;using namespace std;static int x = []() {std::ios::sync_with_stdio(false); cin.tie(0); return 0; }();class Solution {public:    int uniquePaths(int m, int n) {        vector&lt;vector&lt;int&gt; &gt; way(m, vector&lt;int&gt;(n, 1));        for (int i = 1; i &lt; m; ++i) {            for (int j = 1; j &lt; n; ++j) {                way[i][j] = way[i - 1][j] + way[i][j - 1];            }        }        return way[m - 1][n - 1];    }};int main(){    Solution A;    int m = 7, n = 3;    cout &lt;&lt; A.uniquePaths(m, n);    system("PAUSE");    return 0;}</pre></div><p>　　</p><p>&nbsp;</p><p>注意：memset()是按字节赋值，只能够赋值-1或0。</p><p>当我们赋值1时，1转换为二进制<strong>00000001</strong>，占1字节，int型为4字节，因此实际上赋值的是：<strong>0000 0001,0000 0001,0000 0001,0000 0001</strong></p><p><span>也就是<strong>16843009</strong></span></p><p>&nbsp;</p><div class="cnblogs_Highlighter"><pre class="brush:matlab;gutter:true;">int ptr** = new int*[m];for(int i = 0; i &lt; m; ++i){    ptr[m] = new int[n];}....for(int i = 0; i &lt; m;++i)    delete[] ptr[m];}delete []ptr;</pre></div><p>　　</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;一个机器人位于一个&amp;nbsp;&lt;em&gt;m x n&amp;nbsp;&lt;/em&gt;网格的左上角 （起始点在下图中标记为&amp;ldquo;Start&amp;rdquo; ）。&lt;/p&gt;
-&lt;p&gt;机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&amp;ldquo;Finish&amp;r
-      
-    
-    </summary>
-    
-      <category term="二叉树" scheme="http://hkmayfly.com/categories/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-    
-      <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>Hello,Hk_Mayfly!</title>
-    <link href="http://hkmayfly.com/2019/03/26/Hello-Hk-Mayfly/"/>
-    <id>http://hkmayfly.com/2019/03/26/Hello-Hk-Mayfly/</id>
-    <published>2019-03-26T07:54:42.000Z</published>
-    <updated>2019-03-27T11:34:28.103Z</updated>
-    
-    <content type="html"><![CDATA[<p>Biubiubiu!!!博客完善期，等待上线!!!</p>]]></content>
-    
-    <summary type="html">
-    
-      
-      
-        &lt;p&gt;Biubiubiu!!!博客完善期，等待上线!!!&lt;/p&gt;
-
-      
-    
-    </summary>
-    
-      <category term="搭建GitHub博客" scheme="http://hkmayfly.com/categories/%E6%90%AD%E5%BB%BAGitHub%E5%8D%9A%E5%AE%A2/"/>
-    
-    
-      <category term="blog" scheme="http://hkmayfly.com/tags/blog/"/>
-    
-      <category term="博客搭建" scheme="http://hkmayfly.com/tags/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
   </entry>
   

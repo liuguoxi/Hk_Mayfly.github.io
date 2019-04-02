@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 257.二叉树所有路径（C++）]]></title>
+    <url>%2F2019%2F04%2F02%2FLeetCode%20257.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%EF%BC%88C%2B%2B%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[给定一个二叉树，返回所有从根节点到叶子节点的路径。 说明: 叶子节点是指没有子节点的节点。 示例: 输入: &nbsp; 1 / \ 2 3 \ 5 输出: ["1-&gt;2-&gt;5", "1-&gt;3"] 解释: 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3 &nbsp; class Solution { public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { if(root == NULL)//二叉树为空 return vec; DFS(root, to_string(root-&gt;val)); return vec; } void DFS(TreeNode* root, string str) { if (root-&gt;right == NULL &amp;&amp; root-&gt;left == NULL) {//搜索完一个叶子节点，将数据存入容器 vec.push_back(str); return; } if(root-&gt;left != NULL)//防止越界取值 DFS(root-&gt;left, str + "-&gt;" + to_string(root-&gt;left-&gt;val));//先将左子叶遍历，使用str存储递归中经过的值 if(root-&gt;right != NULL) DFS(root-&gt;right, str + "-&gt;" + to_string(root-&gt;right-&gt;val)); } private: vector&lt;string&gt; vec; }; &nbsp; &nbsp; 转载：这个会更好理解 /*这个应该挺容易理解*/ class Solution { private: vector&lt;string&gt; ans;// 最终的解答 public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { binaryTreePaths(root, "", true);// 递归求解 return ans; } private: void binaryTreePaths(TreeNode* root, string s, bool isRoot) { if (!root) return; s += (isRoot ? "" : "-&gt;") + to_string(root-&gt;val);//根节点需要特殊处理 if (!root-&gt;left &amp;&amp; !root-&gt;right) {// 如果找到一个叶子节点 ans.push_back(s); return; } binaryTreePaths(root-&gt;left, s, false); binaryTreePaths(root-&gt;right, s, false); } };]]></content>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>算法--DFS</tag>
+        <tag>算法</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[GitHub+hexo搭建个人博客]]></title>
     <url>%2F2019%2F03%2F30%2FGitHub%2BHexo%E5%8D%9A%E5%AE%A2%E4%B8%AA%E4%BA%BA%E6%90%AD%E5%BB%BA%2F</url>
     <content type="text"><![CDATA[前期准备注册GitHub账号。不做说明 &nbsp; 创建仓库创建一个新的仓库来放置我们的文件。 &nbsp; &nbsp; &nbsp; 下载安装Node.jshttps://nodejs.org/en/&nbsp; &nbsp;两个版本，选择右边那个最新版 &nbsp; 下载安装githttps://www.git-scm.com/download/ &nbsp; 检查安装打开你的cmd命令窗口 &nbsp; 检查Node.js node -v npm -v &nbsp; 检查git git --version 右键也可以看到你git bash &nbsp; 准备工作结束，开始搭建博客！ &nbsp; 建立静态网站创建存放博客文件的文件夹在电脑上找个合适的地方，创建一个myblog文件夹，路径中别有中文，我的是在D:\myblog &nbsp; 从cmd中进入到myblog文件夹，当然你直接进到Blog文件夹右键 git bash here&nbsp;也可以，都是在Blog文件夹执行命令。 （下面的一系列操作都是在myblog文件夹中进行的，cmd保持图片中打开的位置） &nbsp; 安装Hexo输入命令 npm install hexo -g &nbsp; 检查输入命令 hexo -version &nbsp; 初始化文件输入命令 实验室网差，等吧... 找个网好的地方... 现在实际上就是在往myblog文件夹装入hexo文件了，可以去文件夹看看。 &nbsp; 安装完毕！ &nbsp; 下面6,7不想看的直接输入命令 hexo g&amp;&amp;hexo s &nbsp; 生成静态文件输入命令 hexo generate &nbsp; 开启服务输入命令 hexo server 如果开启失败，显示端口已经被用了，换一个即可。我的是因为做过一个网站了，这个是做教程弄的。 更换端口命令： hexo server -p 4444 &nbsp; Hexo已经在运行了，按两次Ctrl+C结束 &nbsp; 搭建完成 &nbsp; 现在我们仅仅是在本地测试完成，接下来要弄到GitHub仓库中，才能在网上访问 &nbsp; 绑定仓库下载powershellhttps://www.mls-software.com/opensshd.html 按住Ctrl+shift+右键，如果出现&ldquo;此处打开powershell&rdquo;，那就不需要安装。 &nbsp; 生成公钥输入命令 ssh-keygen -t rsa &nbsp; 输入命令后，一直回车就行，公钥放在上面powershell显示的文件夹中，我的是在：C:\Users\10245/.ssh/id_rsa.pub 找到文件，打开复制。 &nbsp; 创建ssh公钥在GitHub打开 &nbsp; 输入公钥，增加SSH KEY &nbsp; 顺便去仓库，把仓库的ssh地址，复制了 &nbsp; 配置deployment打开，根目录下（myblog中）的_config.ymlm，拉到最下面，找到deploy,配置为下图：（注意冒号后面都有一个空格） &nbsp; 打开powershell检验（cmd和git都可以）使用powershell打开myblog文件夹 输入命令，测试连接 ssh -T git@github.com 出现这种，带有&ldquo;hi 用户名&rdquo;的才是成功。 &nbsp; ****在上传静态文件之前，你可以创建第一篇自己的博客。 cmd打开myblog,输入命令 hexo new post &ldquo;博客名&rdquo; 文件路径，也就是紫色文字， &nbsp; &nbsp; 上传静态文件在cmd中打开myblog,执行命令 npm install --save hexo-deployer-git 输入命令 hexo g -d &nbsp; 访问博客 上传完成之后，就可以访问我们网上的博客了。我的地址是：https://mayflyhk.github.io/ 你的博客地址，参照 https://用户名.github.io/ 填写 &nbsp; gulp的优化方法记录在了这里：https://www.cnblogs.com/Mayfly-nymph/p/10623234.html &nbsp; 其他博客美化教程，抽时间会继续添加。 &nbsp; 有什么问题，欢迎加我联系方式询问，喜欢的小伙伴可以关注一波！！！]]></content>
@@ -9,40 +19,6 @@
       </categories>
       <tags>
         <tag>博客建设</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Test Blog]]></title>
-    <url>%2F2019%2F03%2F27%2FTest-Blog%2F</url>
-    <content type="text"><![CDATA[首先介绍一下ode45的格式： [t,y] = ode45(odefun,tspan,y0) [t,y] = ode45(odefun,tspan,y0,options) [t,y,te,ye,ie] = ode45(odefun,tspan,y0,options) sol = ode45(___) 这里介绍一阶微分方程： [自变量，因变量] = ode45(方程，范围，初值); &nbsp; 举个栗子： &nbsp; 首先创建一个func2.m函数存放方程表达式 function Biubiu = func2(h, t) g = 9.8; Biubiu = (10000*pi/sqrt(2*g))*(h.^(3/2) - 2*(h.^(1/2))); end 接着在MATLAB命令窗口输入： tspan = [1 0];%函数范围 t_1 = 0;%初值 [h,t] = ode45(@func2, hspan, t_1); plot(h,t);%绘图 &nbsp; 可以丰富一下图像，增加横坐标名，纵坐标名和标题 xlabel('h值') ylabel('y值') title('一阶微分方程') &nbsp; 相关资料访问：https://ww2.mathworks.cn/help/matlab/ref/ode45.html?s_tid=doc_ta]]></content>
-      <categories>
-        <category>MATLAB,ode45</category>
-      </categories>
-      <tags>
-        <tag>ode45</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Test Blog2]]></title>
-    <url>%2F2019%2F03%2F27%2FTest-Blog2%2F</url>
-    <content type="text"><![CDATA[一个机器人位于一个&nbsp;m x n&nbsp;网格的左上角 （起始点在下图中标记为&ldquo;Start&rdquo; ）。 机器人每次只能向下或者向右移动一步。机器人试图达到网格的右下角（在下图中标记为&ldquo;Finish&rdquo;）。 问总共有多少条不同的路径？ 例如，上图是一个7 x 3 的网格。有多少可能的路径？ 说明：m&nbsp;和&nbsp;n&nbsp;的值均不超过 100。 示例&nbsp;1: 输入: m = 3, n = 2 输出: 3 解释: 从左上角开始，总共有 3 条路径可以到达右下角。 1. 向右 -&gt; 向右 -&gt; 向下 2. 向右 -&gt; 向下 -&gt; 向右 3. 向下 -&gt; 向右 -&gt; 向右 示例&nbsp;2: 输入: m = 7, n = 3 输出: 28 可以观察规律，矩阵中数字表示起点到这个地方有多少条路。 1 1 1 1 1 1 2 3 4 5 1 3 6 10 15 发现坐标(i,j)路的条数，可以通过关系式：way[i][j] = way[i - 1][j] + way[i][j - 1];计算 #include &lt;vector&gt; #include &lt;algorithm&gt; #include &lt;memory&gt; #include &lt;numeric&gt; using namespace std; static int x = []() {std::ios::sync_with_stdio(false); cin.tie(0); return 0; }(); class Solution { public: int uniquePaths(int m, int n) { vector&lt;vector&lt;int&gt; &gt; way(m, vector&lt;int&gt;(n, 1)); for (int i = 1; i &lt; m; ++i) { for (int j = 1; j &lt; n; ++j) { way[i][j] = way[i - 1][j] + way[i][j - 1]; } } return way[m - 1][n - 1]; } }; int main() { Solution A; int m = 7, n = 3; cout &lt;&lt; A.uniquePaths(m, n); system("PAUSE"); return 0; } &nbsp; 注意：memset()是按字节赋值，只能够赋值-1或0。 当我们赋值1时，1转换为二进制00000001，占1字节，int型为4字节，因此实际上赋值的是：0000 0001,0000 0001,0000 0001,0000 0001 也就是16843009 &nbsp; int ptr** = new int*[m]; for(int i = 0; i &lt; m; ++i) { ptr[m] = new int[n]; } .... for(int i = 0; i &lt; m;++i) delete[] ptr[m]; } delete []ptr;]]></content>
-      <categories>
-        <category>二叉树</category>
-      </categories>
-      <tags>
-        <tag>二叉树</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[Hello,Hk_Mayfly!]]></title>
-    <url>%2F2019%2F03%2F26%2FHello-Hk-Mayfly%2F</url>
-    <content type="text"><![CDATA[Biubiubiu!!!博客完善期，等待上线!!!]]></content>
-      <categories>
-        <category>搭建GitHub博客</category>
-      </categories>
-      <tags>
-        <tag>blog</tag>
-        <tag>博客搭建</tag>
       </tags>
   </entry>
 </search>
