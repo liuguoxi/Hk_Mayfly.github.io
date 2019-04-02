@@ -1,6 +1,16 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 100.相同的树（C++）]]></title>
+    <url>%2F2019%2F04%2F02%2FLeetCode-100-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91%EF%BC%88C-%EF%BC%89%2F</url>
+    <content type="text"><![CDATA[给定两个二叉树，编写一个函数来检验它们是否相同。 &nbsp; 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。 &nbsp; 示例 1: 输入: 1 1 / \ / \ 2 3 2 3 [1,2,3], [1,2,3] 输出: true&lt;/pre&gt; 示例 2: 输入: 1 1 / \ 2 2 [1,2], [1,null,2] 输出: false&lt;/pre&gt; 输出: false 示例 3: 输入: 1 1 / \ / \ 2 1 1 2 [1,2,1], [1,1,2] 输出: false&lt;/pre&gt; 输出: false /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* q, TreeNode* p) { if (!p &amp;&amp; !q) {//表示到子叶末尾都满足相等条件，返回true return true; } if(!q || !p) {//表示有一个子叶达到末端而另一个没有 return false; } if (q-&gt;val != p-&gt;val) {//表示值不相等 return false; } return isSameTree(q-&gt;left, p-&gt;left) &amp;&amp; isSameTree(q-&gt;right, p-&gt;right); } };]]></content>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>DFS</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 112.路径总和（C++）]]></title>
     <url>%2F2019%2F04%2F02%2FLeetCode-112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-C%2F</url>
     <content type="text"><![CDATA[给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。 说明: 叶子节点是指没有子节点的节点。 示例:&nbsp;给定如下二叉树，以及目标和 sum = 22， 5 / \ 4 8 / / \ 11 13 4 / \ \ 7 2 1 返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5-&gt;4-&gt;11-&gt;2。 &nbsp; 使用类似于二叉树遍历，将sum减去节点，若叶子节点末端值与sum值相等，则满足条件，返回true; /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool hasPathSum(TreeNode* root, int sum) { if (!root) { return false; } if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL) { return root-&gt;val == sum; } return hasPathSum(root-&gt;left, sum - root-&gt;val) || hasPathSum(root-&gt;right, sum - root-&gt;val); } }; &nbsp;]]></content>

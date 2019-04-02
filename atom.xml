@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hkmayfly.com/"/>
-  <updated>2019-04-02T03:52:20.984Z</updated>
+  <updated>2019-04-02T07:26:59.430Z</updated>
   <id>http://hkmayfly.com/</id>
   
   <author>
@@ -15,6 +15,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>LeetCode 100.相同的树（C++）</title>
+    <link href="http://hkmayfly.com/2019/04/02/LeetCode-100-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91%EF%BC%88C-%EF%BC%89/"/>
+    <id>http://hkmayfly.com/2019/04/02/LeetCode-100-相同的树（C-）/</id>
+    <published>2019-04-02T07:26:27.000Z</published>
+    <updated>2019-04-02T07:26:59.430Z</updated>
+    
+    <content type="html"><![CDATA[<p></p><p>给定两个二叉树，编写一个函数来检验它们是否相同。</p><p></p><p></p><p>&nbsp;</p><p></p><p></p><p>如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。</p><p></p><p></p><p>&nbsp;</p><p></p><p></p><p>示例 1:</p><p></p><p><pre>输入:       1         1<br>          / \       / \<br>         2   3     2   3</pre></p><pre><code>    [1,2,3],   [1,2,3]</code></pre><p>输出: true&lt;/pre&gt;</p><p></p><p>示例 2:</p><p></p><p><pre>输入:      1          1<br>          /           \<br>         2             2</pre></p><pre><code>    [1,2],     [1,null,2]</code></pre><p>输出: false&lt;/pre&gt;</p><p></p><p>输出: false</p><p></p><p></p><p>示例 3:</p><p></p><p><pre>输入:       1         1<br>          / \       / \<br>         2   1     1   2</pre></p><pre><code>    [1,2,1],   [1,1,2]</code></pre><p>输出: false&lt;/pre&gt;</p><p></p><p>输出: false</p><p></p><div class="cnblogs_code"><pre>/** * Definition for a binary tree node. * struct TreeNode { *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */class<span> Solution {public<span>:    bool isSameTree(TreeNode* q, TreeNode*<span> p) {        if (!p &amp;&amp; !q) {//表示到子叶末尾都满足相等条件，返回true            return true<span>;        }        if(!q || !p) {//表示有一个子叶达到末端而另一个没有            return false<span>;        }        if (q-&gt;val != p-&gt;val) {//表示值不相等            return false<span>;        }        return isSameTree(q-&gt;left, p-&gt;left) &amp;&amp; isSameTree(q-&gt;right, p-&gt;<span>right);    }};</span></span></span></span></span></span></span></pre></div>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;&lt;/p&gt;&lt;p&gt;给定两个二叉树，编写一个函数来检验它们是否相同。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&amp;nbsp;&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。&lt;/p&gt;&lt;p&gt;&lt;/p&gt;
+&lt;p&gt;&lt;/p&gt;&lt;p&gt;&amp;
+      
+    
+    </summary>
+    
+    
+      <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="DFS" scheme="http://hkmayfly.com/tags/DFS/"/>
+    
+      <category term="LeetCode" scheme="http://hkmayfly.com/tags/LeetCode/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode 112.路径总和（C++）</title>
