@@ -1,13 +1,23 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[LeetCode 112.路径总和（C++）]]></title>
+    <url>%2F2019%2F04%2F02%2FLeetCode-112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-C%2F</url>
+    <content type="text"><![CDATA[给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。 说明: 叶子节点是指没有子节点的节点。 示例:&nbsp;给定如下二叉树，以及目标和 sum = 22， 5 / \ 4 8 / / \ 11 13 4 / \ \ 7 2 1 返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5-&gt;4-&gt;11-&gt;2。 &nbsp; 使用类似于二叉树遍历，将sum减去节点，若叶子节点末端值与sum值相等，则满足条件，返回true; /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool hasPathSum(TreeNode* root, int sum) { if (!root) { return false; } if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL) { return root-&gt;val == sum; } return hasPathSum(root-&gt;left, sum - root-&gt;val) || hasPathSum(root-&gt;right, sum - root-&gt;val); } }; &nbsp;]]></content>
+      <tags>
+        <tag>二叉树</tag>
+        <tag>DFS</tag>
+        <tag>LeetCode</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[LeetCode 257.二叉树所有路径（C++）]]></title>
     <url>%2F2019%2F04%2F02%2FLeetCode%20257.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%EF%BC%88C%2B%2B%EF%BC%89%2F</url>
     <content type="text"><![CDATA[给定一个二叉树，返回所有从根节点到叶子节点的路径。 说明: 叶子节点是指没有子节点的节点。 示例: 输入: &nbsp; 1 / \ 2 3 \ 5 输出: ["1-&gt;2-&gt;5", "1-&gt;3"] 解释: 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3 &nbsp; class Solution { public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { if(root == NULL)//二叉树为空 return vec; DFS(root, to_string(root-&gt;val)); return vec; } void DFS(TreeNode* root, string str) { if (root-&gt;right == NULL &amp;&amp; root-&gt;left == NULL) {//搜索完一个叶子节点，将数据存入容器 vec.push_back(str); return; } if(root-&gt;left != NULL)//防止越界取值 DFS(root-&gt;left, str + "-&gt;" + to_string(root-&gt;left-&gt;val));//先将左子叶遍历，使用str存储递归中经过的值 if(root-&gt;right != NULL) DFS(root-&gt;right, str + "-&gt;" + to_string(root-&gt;right-&gt;val)); } private: vector&lt;string&gt; vec; }; &nbsp; &nbsp; 转载：这个会更好理解 /*这个应该挺容易理解*/ class Solution { private: vector&lt;string&gt; ans;// 最终的解答 public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { binaryTreePaths(root, "", true);// 递归求解 return ans; } private: void binaryTreePaths(TreeNode* root, string s, bool isRoot) { if (!root) return; s += (isRoot ? "" : "-&gt;") + to_string(root-&gt;val);//根节点需要特殊处理 if (!root-&gt;left &amp;&amp; !root-&gt;right) {// 如果找到一个叶子节点 ans.push_back(s); return; } binaryTreePaths(root-&gt;left, s, false); binaryTreePaths(root-&gt;right, s, false); } };]]></content>
       <tags>
         <tag>二叉树</tag>
-        <tag>算法--DFS</tag>
-        <tag>算法</tag>
+        <tag>DFS</tag>
+        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>

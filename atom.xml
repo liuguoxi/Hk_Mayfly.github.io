@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hkmayfly.com/"/>
-  <updated>2019-04-02T03:40:06.952Z</updated>
+  <updated>2019-04-02T03:52:20.984Z</updated>
   <id>http://hkmayfly.com/</id>
   
   <author>
@@ -17,11 +17,41 @@
   <generator uri="http://hexo.io/">Hexo</generator>
   
   <entry>
+    <title>LeetCode 112.路径总和（C++）</title>
+    <link href="http://hkmayfly.com/2019/04/02/LeetCode-112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-C/"/>
+    <id>http://hkmayfly.com/2019/04/02/LeetCode-112-路径总和-C/</id>
+    <published>2019-04-02T03:50:09.000Z</published>
+    <updated>2019-04-02T03:52:20.984Z</updated>
+    
+    <content type="html"><![CDATA[<p>给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。</p><p>说明: 叶子节点是指没有子节点的节点。</p><p>示例:&nbsp;<br>给定如下二叉树，以及目标和 sum = 22，</p><pre>             5             / \            4   8           /   / \          11  13  4         /  \      \        7    2      1</pre><p><br>返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5-&gt;4-&gt;11-&gt;2。</p><p>&nbsp;</p><p>使用类似于二叉树遍历，将sum减去节点，若叶子节点末端值与sum值相等，则满足条件，返回true;</p><div class="cnblogs_code"><pre>/** * Definition for a binary tree node. * struct TreeNode { *     int val; *     TreeNode *left; *     TreeNode *right; *     TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */class<span> Solution {public<span>:    bool hasPathSum(TreeNode* root, int<span> sum) {        if (!<span>root) {            return false<span>;        }        if (root-&gt;left == NULL &amp;&amp; root-&gt;right ==<span> NULL) {            return root-&gt;val ==<span> sum;        }        return hasPathSum(root-&gt;left, sum - root-&gt;val) || hasPathSum(root-&gt;right, sum - root-&gt;<span>val);    }};</span></span></span></span></span></span></span></span></pre></div><p>&nbsp;</p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;p&gt;给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。&lt;/p&gt;
+&lt;p&gt;说明: 叶子节点是指没有子节点的节点。&lt;/p&gt;
+&lt;p&gt;示例:&amp;nbsp;&lt;br&gt;给定如下二叉树，以及目标和 sum = 22，&lt;/p&gt;
+&lt;pre&gt;   
+      
+    
+    </summary>
+    
+    
+      <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
+    
+      <category term="DFS" scheme="http://hkmayfly.com/tags/DFS/"/>
+    
+      <category term="LeetCode" scheme="http://hkmayfly.com/tags/LeetCode/"/>
+    
+  </entry>
+  
+  <entry>
     <title>LeetCode 257.二叉树所有路径（C++）</title>
     <link href="http://hkmayfly.com/2019/04/02/LeetCode%20257.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%EF%BC%88C++%EF%BC%89/"/>
     <id>http://hkmayfly.com/2019/04/02/LeetCode 257.二叉树所有路径（C++）/</id>
     <published>2019-04-02T03:39:32.000Z</published>
-    <updated>2019-04-02T03:40:06.952Z</updated>
+    <updated>2019-04-02T03:46:57.843Z</updated>
     
     <content type="html"><![CDATA[<p></p><p>给定一个二叉树，返回所有从根节点到叶子节点的路径。</p><p></p><p></p><p><b>说明:</b> 叶子节点是指没有子节点的节点。</p><p></p><p></p><p><b>示例:</b></p><p></p><p></p><p><b>输入:</b></p><p></p><p></p><p>&nbsp;</p><p></p><p><pre>   1 /   \2     3 \  5</pre></p><p></p><p><b>输出:</b> ["1-&gt;2-&gt;5", "1-&gt;3"]</p><p></p><p></p><p><b>解释:</b> 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3</p><p></p><p></p><p>&nbsp;</p><p></p><div class="cnblogs_code"><pre>class<span> Solution {public<span>:    vector&lt;string&gt; binaryTreePaths(TreeNode*<span> root) {        if(root == NULL)//二叉树为空            return<span> vec;        DFS(root, to_string(root-&gt;<span>val));        return<span> vec;    }    void DFS(TreeNode* root, string<span> str) {        if (root-&gt;right == NULL &amp;&amp; root-&gt;left == NULL) {//搜索完一个叶子节点，将数据存入容器<span>            vec.push_back(str);            return<span>;        }        if(root-&gt;left != NULL)//防止越界取值                DFS(root-&gt;left, str + "-&gt;" + to_string(root-&gt;left-&gt;val));//先将左子叶遍历，使用str存储递归中经过的值        if(root-&gt;right !=<span> NULL)            DFS(root-&gt;right, str + "-&gt;" + to_string(root-&gt;right-&gt;<span>val));    }private<span>:    vector&lt;string&gt;<span> vec;};</span></span></span></span></span></span></span></span></span></span></span></span></span></pre></div><p>&nbsp;</p><p>　　</p><p>&nbsp;</p><p><strong>转载</strong>：这个会更好理解</p><div class="cnblogs_code"><pre>/*这个应该挺容易理解*/class<span> Solution {private<span>: vector&lt;string&gt; ans;// 最终的解答public<span>: vector&lt;string&gt; binaryTreePaths(TreeNode*<span> root) {    binaryTreePaths(root, "", true);// 递归求解    return<span> ans; }private<span>: void binaryTreePaths(TreeNode* root, string s, bool<span> isRoot) {    if (!root) return<span>;    s += (isRoot ? "" : "-&gt;") + to_string(root-&gt;val);//根节点需要特殊处理    if (!root-&gt;left &amp;&amp; !root-&gt;right) {// 如果找到一个叶子节点<span>        ans.push_back(s);        return<span>;    }    binaryTreePaths(root-&gt;left, s, false<span>);    binaryTreePaths(root-&gt;right, s, false<span>); }};</span></span></span></span></span></span></span></span></span></span></span></span></pre></div>]]></content>
     
@@ -40,9 +70,9 @@
     
       <category term="二叉树" scheme="http://hkmayfly.com/tags/%E4%BA%8C%E5%8F%89%E6%A0%91/"/>
     
-      <category term="算法--DFS" scheme="http://hkmayfly.com/tags/%E7%AE%97%E6%B3%95-DFS/"/>
+      <category term="DFS" scheme="http://hkmayfly.com/tags/DFS/"/>
     
-      <category term="算法" scheme="http://hkmayfly.com/tags/%E7%AE%97%E6%B3%95/"/>
+      <category term="LeetCode" scheme="http://hkmayfly.com/tags/LeetCode/"/>
     
   </entry>
   
