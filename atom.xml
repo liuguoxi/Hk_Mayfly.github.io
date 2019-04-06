@@ -6,7 +6,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://hkmayfly.com/"/>
-  <updated>2019-04-02T07:26:59.430Z</updated>
+  <updated>2019-04-06T18:01:55.646Z</updated>
   <id>http://hkmayfly.com/</id>
   
   <author>
@@ -15,6 +15,29 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>PyCharm+cmd中使用Anaconda 与 新建Python环境（Windows）</title>
+    <link href="http://hkmayfly.com/2019/04/07/PyCharm-cmd%E4%B8%AD%E4%BD%BF%E7%94%A8Anaconda-%E4%B8%8E-%E6%96%B0%E5%BB%BAPython%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89/"/>
+    <id>http://hkmayfly.com/2019/04/07/PyCharm-cmd中使用Anaconda-与-新建Python环境（Windows）/</id>
+    <published>2019-04-06T17:52:29.000Z</published>
+    <updated>2019-04-06T18:01:55.646Z</updated>
+    
+    <content type="html"><![CDATA[<h2 id="PyCharm配置Anaconda"><a href="#PyCharm配置Anaconda" class="headerlink" title="PyCharm配置Anaconda"></a>PyCharm配置Anaconda</h2><p><strong>Anaconda</strong>的安装在网上已经有了，这里主要讲之前已经安装了已经配置好Python环境变量以及PyCharm的情况下,使用<strong>Anaconda</strong>。</p><p>即在PyCharm中出现了<strong>&ldquo;<span style="color: #ff0000;">ModuleNotFoundError No module named 'requests'</span>&rdquo;</strong>错误</p><p>在已经配置好PyCharm的情况下,我们要使用<strong>Anaconda</strong>，需要将原来的编译器（删去），环境可以更换也可以就用原来的。</p><p>在PyCharm左上角<strong>File</strong>(文件)中点击<strong>setting</strong>(设置)==》选择<strong>Project</strong>(项目)==》<strong>Project Interpreter</strong>==》下拉菜单,点击<strong>show all...</strong>==》选定之前配置<strong>Python.exe</strong>,点右边的减号删除（由于我已经配置好了，所以在我这显示的是<strong>Anaconda</strong>的<strong>Python</strong>==》点击&lsquo;<strong>+</strong>&rsquo;号==》<strong>System</strong> <strong>Interpreter</strong>==》右边三个&lsquo;<strong>.</strong>&rsquo;==&gt;找到安装Anaconda的目录选择<strong>Python.exe</strong>==》确定，再返回我们的编译器，就能够引用<strong>requests</strong>等第三方模块了。（具体不懂参考下图）</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1teauizuqj30rz0andh7.jpg" alt width="783" height="298"></p><p>&nbsp;</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1tec2q1voj30ia03g0ss.jpg" alt width="658" height="124"></p><p>&nbsp;</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1tecm21kyj30ql0dhabn.jpg" alt width="769" height="390"></p><p>&nbsp;</p><h2 id="cmd中使用Anaconda"><a href="#cmd中使用Anaconda" class="headerlink" title="cmd中使用Anaconda"></a>cmd中使用Anaconda</h2><p>我们要在<strong>cmd</strong>中使用<strong>Anaconda</strong>，也是需要我们安装Anaconda文件夹中的<strong>Python.exe</strong>，因为我们之前已经配置的Python的环境，所以我们在控制不管怎么输入都是进入之前的编译器中，如果要修改需要到环境变量中更改，我认为没必要的。我们要在cmd中使用Anaconda,我们可以将它与之前安装的区分开。</p><p>直接在cmd中打开Anaconda文件夹中的Pyhton.exe就行。</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1tengnlitj30cs07fdgm.jpg" alt width="460" height="267"></p><p>&nbsp;</p><h2 id="Python新环境创建"><a href="#Python新环境创建" class="headerlink" title="Python新环境创建"></a>Python新环境创建</h2><p>当然对于，Python的环境我们也可以利用<strong>virtualenv</strong>来创建一个新的环境</p> <h3 id="virtualenv模块下载"><a href="#virtualenv模块下载" class="headerlink" title="virtualenv模块下载"></a>virtualenv模块下载</h3><p>如果安装了Anaconda,可以直接使用<strong>virtualenv</strong>模块，没有就在cmd上运行（下面这部分为没有安装好Anaconda的准备）</p><div class="cnblogs_code"><pre><code class="ruby">pip3 install virtualenv</code></pre></div><p>上面的代码需要安装pip支持下载（不做说明）</p><p>&nbsp;</p><p>上面如果下载错误可以尝试换源：</p><div class="cnblogs_code"><pre>pip install virtualenv -i https:<span style="color: #008000;">//</span><span style="color: #008000;">pypi.tuna.tsinghua.edu.cn/simple/ </span></pre></div><p>&nbsp;</p><h3 id="环境搭建"><a href="#环境搭建" class="headerlink" title="环境搭建"></a>环境搭建</h3><p>下载好之后，新建环境文件夹</p><p>&nbsp;</p><p>安装新的环境</p><div class="cnblogs_code"><pre>virtualenv --no-site-packages venv</pre></div><p>其中<strong>--no-site-packages</strong>是表示不从原来的Python环境中继承第三方库，你要一个干净的环境就加，不要就不加。</p><p>这样一来，我们的新环境就创建好了，Python编译器在Scripts文件夹中</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1tf43klqmj30hk0h5dhj.jpg" alt width="596" height="582"></p><p>&nbsp;</p><p>这个新的环境你可以在PyCharm配置Anaconda时选择自己重新建一个干净的环境。</p><p>&nbsp;</p><p>进入/退出新环境</p><p>进入环境打开test_env/env/Scripts/activate文件即可进入该环境</p><p>输入deactivate退出环境</p><p><img src="http://ww1.sinaimg.cn/large/007EVkFtgy1g1tfvo2w63j30ik05hwfb.jpg" alt width="668" height="197"></p>]]></content>
+    
+    <summary type="html">
+    
+      
+      
+        &lt;h2 id=&quot;PyCharm配置Anaconda&quot;&gt;&lt;a href=&quot;#PyCharm配置Anaconda&quot; class=&quot;headerlink&quot; title=&quot;PyCharm配置Anaconda&quot;&gt;&lt;/a&gt;PyCharm配置Anaconda&lt;/h2&gt;&lt;p&gt;&lt;strong&gt;An
+      
+    
+    </summary>
+    
+    
+      <category term="Python" scheme="http://hkmayfly.com/tags/Python/"/>
+    
+  </entry>
   
   <entry>
     <title>LeetCode 100.相同的树（C++）</title>
