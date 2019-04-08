@@ -1,10 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>http://hkmayfly.com/2019/04/07/PyCharm-cmd%E4%B8%AD%E4%BD%BF%E7%94%A8Anaconda-%E4%B8%8E-%E6%96%B0%E5%BB%BAPython%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89/</loc>
-    <lastmod>2019-04-06</lastmod>
-  </url>  <url>
     <loc>http://hkmayfly.com/2019/03/30/GitHub+Hexo%E5%8D%9A%E5%AE%A2%E4%B8%AA%E4%BA%BA%E6%90%AD%E5%BB%BA/</loc>
+    <lastmod>2019-04-08</lastmod>
+  </url>  <url>
+    <loc>http://hkmayfly.com/2019/04/08/%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E7%88%AC%E5%8F%96%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87-requests-urllib/</loc>
+    <lastmod>2019-04-08</lastmod>
+  </url>  <url>
+    <loc>http://hkmayfly.com/2019/04/07/PyCharm-cmd%E4%B8%AD%E4%BD%BF%E7%94%A8Anaconda-%E4%B8%8E-%E6%96%B0%E5%BB%BAPython%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89/</loc>
     <lastmod>2019-04-06</lastmod>
   </url>  <url>
     <loc>http://hkmayfly.com/2019/04/02/LeetCode-100-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91%EF%BC%88C-%EF%BC%89/</loc>

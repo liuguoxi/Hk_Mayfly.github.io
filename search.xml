@@ -1,6 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[两种方法爬取网页图片(requests/urllib)]]></title>
+    <url>%2F2019%2F04%2F08%2F%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E7%88%AC%E5%8F%96%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87-requests-urllib%2F</url>
+    <content type="text"><![CDATA[实际上，简单的图片爬虫就三个步骤： 获取网页代码 使用正则表达式，寻找图片链接 下载图片链接资源到电脑 下面以博客园为例子，不同的网站可能需要更改正则表达式形式。 requests版本： import requests import re #获取网页代码 r = requests.get('https://www.cnblogs.com/Mayfly-nymph/p/10663896.html') #根据正则表达式，找寻图片链接 listpic = re.findall(r'http.+\.jpg',r.text) print(listpic) i = 1 #循环获取每个图片链接的内容，以二进制形式输入到文件当中 for url in listpic: with open('D:\\pip\\'+str(i)+'.jpg', 'wb') as f: image = requests.get(url) f.write(image.content) i+=1 &nbsp; ### urllib版本： from urllib import request import re url = 'https://www.cnblogs.com/Mayfly-nymph/p/10663896.html' #模拟浏览器发送GET请求 r = request.Request(url) #对页面进行抓取 with request.urlopen(r) as f: data = f.read() #将bytes型数据转化为字符串 data = str(data, encoding='utf-8') #以正则表达式找寻符合要求的图片链接 listpic = re.findall(r'http.+\.jpg', data) print(listpic) i = 1 #循环，下载链接图片资源并保存 for url in listpic: request.urlretrieve(url,'D:\\pip\\'+str(i)+'.jpg') i+=1]]></content>
+      <tags>
+        <tag>Python</tag>
+        <tag>爬虫</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[PyCharm+cmd中使用Anaconda 与 新建Python环境（Windows）]]></title>
     <url>%2F2019%2F04%2F07%2FPyCharm-cmd%E4%B8%AD%E4%BD%BF%E7%94%A8Anaconda-%E4%B8%8E-%E6%96%B0%E5%BB%BAPython%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89%2F</url>
     <content type="text"><![CDATA[PyCharm配置AnacondaAnaconda的安装在网上已经有了，这里主要讲之前已经安装了已经配置好Python环境变量以及PyCharm的情况下,使用Anaconda。 即在PyCharm中出现了&ldquo;ModuleNotFoundError No module named 'requests'&rdquo;错误 在已经配置好PyCharm的情况下,我们要使用Anaconda，需要将原来的编译器（删去），环境可以更换也可以就用原来的。 在PyCharm左上角File(文件)中点击setting(设置)==》选择Project(项目)==》Project Interpreter==》下拉菜单,点击show all...==》选定之前配置Python.exe,点右边的减号删除（由于我已经配置好了，所以在我这显示的是Anaconda的Python==》点击&lsquo;+&rsquo;号==》System Interpreter==》右边三个&lsquo;.&rsquo;==&gt;找到安装Anaconda的目录选择Python.exe==》确定，再返回我们的编译器，就能够引用requests等第三方模块了。（具体不懂参考下图） &nbsp; &nbsp; &nbsp; cmd中使用Anaconda我们要在cmd中使用Anaconda，也是需要我们安装Anaconda文件夹中的Python.exe，因为我们之前已经配置的Python的环境，所以我们在控制不管怎么输入都是进入之前的编译器中，如果要修改需要到环境变量中更改，我认为没必要的。我们要在cmd中使用Anaconda,我们可以将它与之前安装的区分开。 直接在cmd中打开Anaconda文件夹中的Pyhton.exe就行。 &nbsp; Python新环境创建当然对于，Python的环境我们也可以利用virtualenv来创建一个新的环境 virtualenv模块下载如果安装了Anaconda,可以直接使用virtualenv模块，没有就在cmd上运行（下面这部分为没有安装好Anaconda的准备） pip3 install virtualenv 上面的代码需要安装pip支持下载（不做说明） &nbsp; 上面如果下载错误可以尝试换源： pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple/ &nbsp; 环境搭建下载好之后，新建环境文件夹 &nbsp; 安装新的环境 virtualenv --no-site-packages venv 其中--no-site-packages是表示不从原来的Python环境中继承第三方库，你要一个干净的环境就加，不要就不加。 这样一来，我们的新环境就创建好了，Python编译器在Scripts文件夹中 &nbsp; 这个新的环境你可以在PyCharm配置Anaconda时选择自己重新建一个干净的环境。 &nbsp; 进入/退出新环境 进入环境打开test_env/env/Scripts/activate文件即可进入该环境 输入deactivate退出环境]]></content>
