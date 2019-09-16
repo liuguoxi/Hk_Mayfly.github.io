@@ -1,50 +1,11 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
-    <title><![CDATA[两种方法爬取网页图片(requests/urllib)]]></title>
-    <url>%2F2019%2F04%2F08%2F%E4%B8%A4%E7%A7%8D%E6%96%B9%E6%B3%95%E7%88%AC%E5%8F%96%E7%BD%91%E9%A1%B5%E5%9B%BE%E7%89%87-requests-urllib%2F</url>
-    <content type="text"><![CDATA[实际上，简单的图片爬虫就三个步骤： 获取网页代码 使用正则表达式，寻找图片链接 下载图片链接资源到电脑 下面以博客园为例子，不同的网站可能需要更改正则表达式形式。 requests版本：123456789101112131415import requestsimport re#网页代码r = requests.get(&apos;https://www.cnblogs.com/Mayfly-nymph/p/10663896.html&apos;)#则表达式，找寻图片链接listpic = re.findall(r&apos;http.+\.jpg&apos;,r.text)print(listpic)i = 1#循环获取每个图片链接的内容，以二进制形式输入到文件当中for url in listpic: with open(&apos;D:\\pip\\&apos;+str(i)+&apos;.jpg&apos;, &apos;wb&apos;) as f: image = requests.get(url) f.write(image.content) i+=1 &nbsp; urllib版本：12345678910111213141516171819from urllib import requestimport reurl = &apos;https://www.cnblogs.com/Mayfly-nymph/p/10663896.html&apos;#模拟浏览器发送GET请求r = request.Request(url)#对页面进行抓取with request.urlopen(r) as f: data = f.read()#将bytes型数据转化为字符串data = str(data, encoding=&apos;utf-8&apos;)#以正则表达式找寻符合要求的图片链接listpic = re.findall(r&apos;http.+\.jpg&apos;, data)print(listpic)i = 1#循环，下载链接图片资源并保存for url in listpic: request.urlretrieve(url,&apos;D:\\pip\\&apos;+str(i)+&apos;.jpg&apos;) i+=1 &nbsp; &nbsp;]]></content>
-      <tags>
-        <tag>Python</tag>
-        <tag>爬虫</tag>
-      </tags>
-  </entry>
-  <entry>
     <title><![CDATA[PyCharm+cmd中使用Anaconda 与 新建Python环境（Windows）]]></title>
     <url>%2F2019%2F04%2F07%2FPyCharm-cmd%E4%B8%AD%E4%BD%BF%E7%94%A8Anaconda-%E4%B8%8E-%E6%96%B0%E5%BB%BAPython%E7%8E%AF%E5%A2%83%EF%BC%88Windows%EF%BC%89%2F</url>
     <content type="text"><![CDATA[PyCharm配置AnacondaAnaconda的安装在网上已经有了，这里主要讲之前已经安装了已经配置好Python环境变量以及PyCharm的情况下,使用Anaconda。 即在PyCharm中出现了&ldquo;ModuleNotFoundError No module named 'requests'&rdquo;错误 在已经配置好PyCharm的情况下,我们要使用Anaconda，需要将原来的编译器（删去），环境可以更换也可以就用原来的。 在PyCharm左上角File(文件)中点击setting(设置)==》选择Project(项目)==》Project Interpreter==》下拉菜单,点击show all...==》选定之前配置Python.exe,点右边的减号删除（由于我已经配置好了，所以在我这显示的是Anaconda的Python==》点击&lsquo;+&rsquo;号==》System Interpreter==》右边三个&lsquo;.&rsquo;==&gt;找到安装Anaconda的目录选择Python.exe==》确定，再返回我们的编译器，就能够引用requests等第三方模块了。（具体不懂参考下图） &nbsp; &nbsp; &nbsp; cmd中使用Anaconda我们要在cmd中使用Anaconda，也是需要我们安装Anaconda文件夹中的Python.exe，因为我们之前已经配置的Python的环境，所以我们在控制不管怎么输入都是进入之前的编译器中，如果要修改需要到环境变量中更改，我认为没必要的。我们要在cmd中使用Anaconda,我们可以将它与之前安装的区分开。 直接在cmd中打开Anaconda文件夹中的Pyhton.exe就行。 &nbsp; Python新环境创建当然对于，Python的环境我们也可以利用virtualenv来创建一个新的环境 virtualenv模块下载如果安装了Anaconda,可以直接使用virtualenv模块，没有就在cmd上运行（下面这部分为没有安装好Anaconda的准备） pip3 install virtualenv 上面的代码需要安装pip支持下载（不做说明） &nbsp; 上面如果下载错误可以尝试换源： pip install virtualenv -i https://pypi.tuna.tsinghua.edu.cn/simple/ &nbsp; 环境搭建下载好之后，新建环境文件夹 &nbsp; 安装新的环境 virtualenv --no-site-packages venv 其中--no-site-packages是表示不从原来的Python环境中继承第三方库，你要一个干净的环境就加，不要就不加。 这样一来，我们的新环境就创建好了，Python编译器在Scripts文件夹中 &nbsp; 这个新的环境你可以在PyCharm配置Anaconda时选择自己重新建一个干净的环境。 &nbsp; 进入/退出新环境 进入环境打开test_env/env/Scripts/activate文件即可进入该环境 输入deactivate退出环境]]></content>
       <tags>
         <tag>Python</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode 100.相同的树（C++）]]></title>
-    <url>%2F2019%2F04%2F02%2FLeetCode-100-%E7%9B%B8%E5%90%8C%E7%9A%84%E6%A0%91%EF%BC%88C-%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[给定两个二叉树，编写一个函数来检验它们是否相同。 &nbsp; 如果两个树在结构上相同，并且节点具有相同的值，则认为它们是相同的。 &nbsp; 示例 1: 输入: 1 1 / \ / \ 2 3 2 3 [1,2,3], [1,2,3] 输出: true&lt;/pre&gt; 示例 2: 输入: 1 1 / \ 2 2 [1,2], [1,null,2] 输出: false&lt;/pre&gt; 输出: false 示例 3: 输入: 1 1 / \ / \ 2 1 1 2 [1,2,1], [1,1,2] 输出: false&lt;/pre&gt; 输出: false /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool isSameTree(TreeNode* q, TreeNode* p) { if (!p &amp;&amp; !q) {//表示到子叶末尾都满足相等条件，返回true return true; } if(!q || !p) {//表示有一个子叶达到末端而另一个没有 return false; } if (q-&gt;val != p-&gt;val) {//表示值不相等 return false; } return isSameTree(q-&gt;left, p-&gt;left) &amp;&amp; isSameTree(q-&gt;right, p-&gt;right); } };]]></content>
-      <tags>
-        <tag>二叉树</tag>
-        <tag>DFS</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode 112.路径总和（C++）]]></title>
-    <url>%2F2019%2F04%2F02%2FLeetCode-112-%E8%B7%AF%E5%BE%84%E6%80%BB%E5%92%8C-C%2F</url>
-    <content type="text"><![CDATA[给定一个二叉树和一个目标和，判断该树中是否存在根节点到叶子节点的路径，这条路径上所有节点值相加等于目标和。 说明: 叶子节点是指没有子节点的节点。 示例:&nbsp;给定如下二叉树，以及目标和 sum = 22， 5 / \ 4 8 / / \ 11 13 4 / \ \ 7 2 1 返回 true, 因为存在目标和为 22 的根节点到叶子节点的路径 5-&gt;4-&gt;11-&gt;2。 &nbsp; 使用类似于二叉树遍历，将sum减去节点，若叶子节点末端值与sum值相等，则满足条件，返回true; /** * Definition for a binary tree node. * struct TreeNode { * int val; * TreeNode *left; * TreeNode *right; * TreeNode(int x) : val(x), left(NULL), right(NULL) {} * }; */ class Solution { public: bool hasPathSum(TreeNode* root, int sum) { if (!root) { return false; } if (root-&gt;left == NULL &amp;&amp; root-&gt;right == NULL) { return root-&gt;val == sum; } return hasPathSum(root-&gt;left, sum - root-&gt;val) || hasPathSum(root-&gt;right, sum - root-&gt;val); } }; &nbsp;]]></content>
-      <tags>
-        <tag>二叉树</tag>
-        <tag>DFS</tag>
-        <tag>LeetCode</tag>
-      </tags>
-  </entry>
-  <entry>
-    <title><![CDATA[LeetCode 257.二叉树所有路径（C++）]]></title>
-    <url>%2F2019%2F04%2F02%2FLeetCode%20257.%E4%BA%8C%E5%8F%89%E6%A0%91%E6%89%80%E6%9C%89%E8%B7%AF%E5%BE%84%EF%BC%88C%2B%2B%EF%BC%89%2F</url>
-    <content type="text"><![CDATA[给定一个二叉树，返回所有从根节点到叶子节点的路径。 说明: 叶子节点是指没有子节点的节点。 示例: 输入: &nbsp; 1 / \ 2 3 \ 5 输出: ["1-&gt;2-&gt;5", "1-&gt;3"] 解释: 所有根节点到叶子节点的路径为: 1-&gt;2-&gt;5, 1-&gt;3 &nbsp; class Solution { public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { if(root == NULL)//二叉树为空 return vec; DFS(root, to_string(root-&gt;val)); return vec; } void DFS(TreeNode* root, string str) { if (root-&gt;right == NULL &amp;&amp; root-&gt;left == NULL) {//搜索完一个叶子节点，将数据存入容器 vec.push_back(str); return; } if(root-&gt;left != NULL)//防止越界取值 DFS(root-&gt;left, str + "-&gt;" + to_string(root-&gt;left-&gt;val));//先将左子叶遍历，使用str存储递归中经过的值 if(root-&gt;right != NULL) DFS(root-&gt;right, str + "-&gt;" + to_string(root-&gt;right-&gt;val)); } private: vector&lt;string&gt; vec; }; &nbsp; &nbsp; 转载：这个会更好理解 /*这个应该挺容易理解*/ class Solution { private: vector&lt;string&gt; ans;// 最终的解答 public: vector&lt;string&gt; binaryTreePaths(TreeNode* root) { binaryTreePaths(root, "", true);// 递归求解 return ans; } private: void binaryTreePaths(TreeNode* root, string s, bool isRoot) { if (!root) return; s += (isRoot ? "" : "-&gt;") + to_string(root-&gt;val);//根节点需要特殊处理 if (!root-&gt;left &amp;&amp; !root-&gt;right) {// 如果找到一个叶子节点 ans.push_back(s); return; } binaryTreePaths(root-&gt;left, s, false); binaryTreePaths(root-&gt;right, s, false); } };]]></content>
-      <tags>
-        <tag>二叉树</tag>
-        <tag>DFS</tag>
-        <tag>LeetCode</tag>
       </tags>
   </entry>
   <entry>
