@@ -1,3 +1,4 @@
+http://hkmayfly.com/2019/12/24/数学建模入门/
 http://hkmayfly.com/2019/09/26/BUUCTF-不一样的flag/
 http://hkmayfly.com/2019/09/26/攻防世界-re1-100/
 http://hkmayfly.com/2019/04/07/PyCharm-cmd中使用Anaconda-与-新建Python环境（Windows）/
