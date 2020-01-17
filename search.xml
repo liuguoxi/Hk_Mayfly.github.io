@@ -1,6 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[攻防世界--hackme]]></title>
+    <url>%2F2020%2F01%2F18%2F%E6%94%BB%E9%98%B2%E4%B8%96%E7%95%8C-hackme%2F</url>
+    <content type="text"><![CDATA[测试链接：https://adworld.xctf.org.cn/media/task/attachments/33009710e3f44f04b5a4cdbaaa46f00a 准备 获取信息 64位文件 IDA打开12345678910111213141516171819202122232425262728293031323334353637383940414243444546__int64 __fastcall sub_400F8E(__int64 a1, __int64 a2)&#123; char v3[136]; // [rsp+10h] [rbp-B0h] int v4; // [rsp+98h] [rbp-28h] char v5; // [rsp+9Fh] [rbp-21h] int v6; // [rsp+A0h] [rbp-20h] unsigned __int8 v7; // [rsp+A6h] [rbp-1Ah] char v8; // [rsp+A7h] [rbp-19h] int v9; // [rsp+A8h] [rbp-18h] int v10; // [rsp+ACh] [rbp-14h] int v11; // [rsp+B0h] [rbp-10h] int v12; // [rsp+B4h] [rbp-Ch] _BOOL4 v13; // [rsp+B8h] [rbp-8h] int i; // [rsp+BCh] [rbp-4h] sub_407470((__int64)"Give me the password: ", a2); sub_4075A0((__int64)"%s", v3); for ( i = 0; v3[i]; ++i ) ; v13 = i == 22; v12 = 10; do &#123; v9 = (signed int)sub_406D90("%s", v3) % 22; v11 = 0; v8 = byte_6B4270[v9]; v7 = v3[v9]; v6 = v9 + 1; v10 = 0; while ( v10 &lt; v6 ) &#123; ++v10; v11 = 1828812941 * v11 + 12345; &#125; v5 = v11 ^ v7; if ( v8 != ((unsigned __int8)v11 ^ v7) ) v13 = 0; --v12; &#125; while ( v12 ); if ( v13 ) v4 = sub_407470((__int64)"Congras\n"); else v4 = sub_407470((__int64)"Oh no!\n"); return 0LL;&#125; 代码分析这道题主要是sub_406D90函数，对于第33行代码，我们能够知道v9是0~21的整数，在这道题中，v9的在循环当中值的顺序不会影响判断，因为v9用到的地方就两个，一个在已知数组byte_6B4270和输入字符串v3的取值中，另一个在v11的循环中，因为v11最终影响的是v11^v7!=v8，又因为v7和v3[v9]有关，v8和byte_6B4270[v9]有关，因此v11，byte_6B4270[v9]和v3[v9]都应该是固定的对应关系。我们只需要让v9的值小于22即可，通过观察byte_6B4270，我们知道byte_6B4270数组实际长度应该就是22，又通过观察第36行代码，我们能够知道这道题实际就是取10位输入的字符，异或后，与byte_6B4270比较是否相同。我们只需要逆向操作就行。 脚本解密1234567891011121314index = [0x5F,0xF2,0x5E,0x8B,0x4E,0x0E,0xA3,0xAA,0xC7,0x93,0x81,0x3D,0x5F,0x74,0xA3,0x09,0x91,0x2B,0x49,0x28,0x93,0x67]flag = ''for i in range(22): v6 = i + 1 v10 = 0 v11 = 0 while v10 &lt; v6: v10 = v10 + 1 v11 = 1828812941 * v11 + 12345 flag += chr((index[i]^v11)&amp;0xff)print (flag) 123456789101112131415161718192021222324#include &lt;iostream&gt;#pragma warning(disable:4996)using namespace std;int main()&#123; int index[] = &#123; 0x5F,0xF2,0x5E,0x8B,0x4E,0x0E,0xA3,0xAA,0xC7,0x93,0x81,0x3D,0x5F,0x74,0xA3,0x09,0x91,0x2B,0x49,0x28,0x93,0x67 &#125;; for (int i = 0; i &lt; 22; ++i) &#123; int v6 = i + 1; int v10 = 0; int v11 = 0; while (v10 &lt; v6) &#123; v10++; v11 = 1828812941 * v11 + 12345; &#125; printf("%c", index[i] ^ v11); &#125; system("PAUSE"); return 0;&#125; get flag! flag{d826e6926098ef46}]]></content>
+      <categories>
+        <category>信息安全</category>
+      </categories>
+      <tags>
+        <tag>CTF</tag>
+        <tag>Reverse</tag>
+        <tag>日常练习</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[2019年 自我总结]]></title>
     <url>%2F2019%2F12%2F31%2F2019%E5%B9%B4-%E8%87%AA%E6%88%91%E6%80%BB%E7%BB%93%2F</url>
     <content type="text"><![CDATA[引言&nbsp; &nbsp; 今年应该是进入大学以来，最为丰富的一年，也是收获最多的一年。 &nbsp; 学习 &nbsp; &nbsp; &nbsp; &nbsp; 进入2019年，我首先参加的应该是美国大学生数学建模竞赛，比赛前前后后经过了十几天。这一次比赛应该是我经历过最辛苦的一次，首先经过了培训和模拟赛，接着就进行美赛，最后一天通宵，我站着脚都在发抖，回去后作息也乱了。不过也很开心，因为学校宿食好，能够和朋友们一起经历也是最暖心的，骚哥，拐哥，邓总，王总，刘师姐，王师姐... ... &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 接着应该是结束了《C++ Prime》的学习，因为这本书我看的是原版英文，实在让我记忆犹新。3，4月份参加了蓝桥杯，数模网挑比赛。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 其次，让我感触挺深的应该是4月份的mathorcup，因为这一次比赛，是我在大学生活中感受到团队氛围，最为深刻的一次。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 然后是自己初次结识了Python，学习了爬虫和Django建站，挺有意思的。最大的一次转变应该是在今年暑假前后，因为这一次我知道了自己想做什么，要做什么--从去年就开始迷茫自己的方向，热爱计算机的全部，但又需要选择自己的方向。最终让我下定决心的是自己最初学习计算机的原因&mdash;&mdash;信息安全，高中那时候一直朝着脚本小子的方向发展，不过有幸结识到了红盟的毁灭老大，Darksky大哥和学校的林老师。在暑假期间，我学习了汇编，Win API和逆向知识。 &nbsp; &nbsp; &nbsp;&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 进入9月份开学，首先迎来的是全国大学生数学建模竞赛，这次比赛相较于以前的有一些体会到了建模带来的快乐了。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 在9月中旬，自己也慢慢开始尝试接触CTF比赛，还记得自己第一次接触的比赛时ByteCTF，在9月底~10月初，有幸认识了L1ne队长，进入到了CTF战队，交到了新的朋友，并和大家一起参与到日常的打比赛中，这段时期应该是自己正式步入信安方向的时期。10月~11月，继续完善了逆向知识，汲取比赛经验，创建了学校的C01d战队。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 12月份，有幸到成都参加了&ldquo;安洵杯&rdquo;线下赛，收获了信安方面的第一个奖状。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; 今年在电脑上度过的时间，相比较去年，时间很多都花在了QQ上。 &nbsp; &nbsp; 生活 &nbsp; &nbsp; &nbsp; &nbsp;2019年的生活，首先就应该是在建模和CTF战队中的生活，因为到现在数学建模不仅仅是竞赛，更是大学成长的见证者和陪伴者，而CTF战队，是我的朋友，也是我的老师，从群里的师傅身上，我学到了很多。 &nbsp; &nbsp; &nbsp; &nbsp;其次应该是接外包，从今年4月份左右开始接外包，到现在应该断断续续有5个月左右时间，大二下学期刚接触到外包，接的时间比较多，一周到手有500多。这学期就有空接一接，挣点零食钱，还是不错。外包大部分工作都是重复性工作，没有趣味所在，你也不能从里面获得多少知识。做这个相当于拿时间换钱而已，个人认为将外包当成丰富生活经历就行，别花太多精力。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;在11月初，我创建了自己的公众号Star Bottle（星瓶，收获小星星，哈哈！主要分享建模和信安知识，学习经历等），将建模的大部分文章都放在了CSDN上用来引流，因为我发现CSDN上的流量比博客园高得多。做公众号和写博客不同，公众号需要更加注重推文的需求和质量。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;然后，在11月底，创建了学校的C01d战队，期望为同样喜欢信安的朋友们，提供一个落脚点。&ldquo;Our conquest is the sea of stars.&rdquo;这是我们战队的口号。不过困难重重，首先就是新人培训和积极性提升的问题了，没有专业的老师指导，也没有人能够统一组织，全都得靠自己的嘴巴和脑子。 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;12月份，参加了四六级考试（&epsilon;=(&acute;&omicron;｀*)))唉，跟喜欢了很久的女孩告白，但自己不知道别人名花有主... ...&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;今年通过博客，通过比赛，交到了很多的朋友，也收到了很多的粉丝，感谢大家你们的陪伴和支持，才让自己能够在学习之路上不在孤独。 &nbsp; 期望 &nbsp; &nbsp; 对2020的期望： 考研 深入Re学习，拓展PWN和Crypto学习，提升线下赛能力。 完美收官寒假美赛。 发展C01d战队。 熟练Rush A/B。 公众号 在即将到来的新的一年里，祝大家元旦快乐！]]></content>
@@ -33,6 +46,7 @@
       <tags>
         <tag>CTF</tag>
         <tag>Reverse</tag>
+        <tag>日常练习</tag>
       </tags>
   </entry>
   <entry>
@@ -45,6 +59,7 @@
       <tags>
         <tag>CTF</tag>
         <tag>Reverse</tag>
+        <tag>日常练习</tag>
       </tags>
   </entry>
   <entry>
