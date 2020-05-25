@@ -2,6 +2,13 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>https://hkmayfly.xyz/tags/index.html</loc>
+    
+    <lastmod>2020-05-25T17:15:39.381Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>https://hkmayfly.xyz/about/index.html</loc>
     
     <lastmod>2020-05-25T16:04:57.228Z</lastmod>
@@ -54,13 +61,6 @@
     <loc>https://hkmayfly.xyz/categories/index.html</loc>
     
     <lastmod>2019-03-29T05:36:31.893Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>https://hkmayfly.xyz/tags/index.html</loc>
-    
-    <lastmod>2019-03-26T14:16:31.114Z</lastmod>
     
   </url>
   
