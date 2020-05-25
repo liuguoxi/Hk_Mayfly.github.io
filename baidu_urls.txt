@@ -1,7 +1,7 @@
-https://www.hkmayfly.xyz/2020/01/18/攻防世界-hackme/
-https://www.hkmayfly.xyz/2019/12/31/2019年-自我总结/
-https://www.hkmayfly.xyz/2019/12/24/数学建模入门/
-https://www.hkmayfly.xyz/2019/09/26/BUUCTF-不一样的flag/
-https://www.hkmayfly.xyz/2019/09/26/攻防世界-re1-100/
-https://www.hkmayfly.xyz/2019/04/07/PyCharm-cmd中使用Anaconda-与-新建Python环境（Windows）/
-https://www.hkmayfly.xyz/2019/03/30/GitHub+Hexo博客个人搭建/
+https://hkmayfly.xyz/2020/01/18/攻防世界-hackme/
+https://hkmayfly.xyz/2019/12/31/2019年-自我总结/
+https://hkmayfly.xyz/2019/12/24/数学建模入门/
+https://hkmayfly.xyz/2019/09/26/BUUCTF-不一样的flag/
+https://hkmayfly.xyz/2019/09/26/攻防世界-re1-100/
+https://hkmayfly.xyz/2019/04/07/PyCharm-cmd中使用Anaconda-与-新建Python环境（Windows）/
+https://hkmayfly.xyz/2019/03/30/GitHub+Hexo博客个人搭建/
